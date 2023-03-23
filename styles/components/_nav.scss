@@ -1,0 +1,9 @@
+@layer components {
+  #toggle-links {
+    &.visible-links {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

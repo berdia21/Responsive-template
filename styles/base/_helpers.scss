@@ -1,0 +1,23 @@
+.custom-container {
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1342px;
+  margin: 0 auto;
+
+  @include upto-xxl {
+    max-width: 1158px;
+  }
+
+  @include upto-xl {
+    max-width: 958px;
+  }
+
+  @include upto-lg {
+    max-width: 720px;
+  }
+
+  @include upto-sm {
+    padding: 0 16px;
+  }
+
+}

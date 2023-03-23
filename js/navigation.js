@@ -1,21 +1,21 @@
-var Greedy = function Greedy(options) {
-  this.element = document.querySelector(options.element);
+var DynamicNav = function DynamicNav() {
+  this.element = document.querySelector(".menu");
   this.visibleLinks = this.element.querySelector("nav");
   this.toggleButton = this.element.querySelector("#toggle-links");
   this.breakpoints = [];
   this.init();
 };
 
-window.Greedy = Greedy;
+window.DynamicNav = DynamicNav;
 
-Greedy.prototype.init = function () {
+DynamicNav.prototype.init = function () {
   this.setupMenu();
   this.calculateBreakpoints();
   this.updateMenu();
   this.addBindings();
 };
 
-Greedy.prototype.bindMethod = function (name) {
+DynamicNav.prototype.bindMethod = function (name) {
   return (
     this["_" + name + "_"] ||
     Object.defineProperty(this, "_" + name + "_", {
@@ -24,13 +24,13 @@ Greedy.prototype.bindMethod = function (name) {
   );
 };
 
-Greedy.prototype.setupMenu = function () {
+DynamicNav.prototype.setupMenu = function () {
   this.hiddenLinks = document.querySelector(".overflow");
   this.element.appendChild(this.hiddenLinks);
   this.visibleLinks.classList.add("visible-links");
 };
 
-Greedy.prototype.calculateBreakpoints = function () {
+DynamicNav.prototype.calculateBreakpoints = function () {
   var childrenWidth = 0;
 
   for (var i = 0; i < this.visibleLinks.children.length; i++) {
@@ -39,7 +39,7 @@ Greedy.prototype.calculateBreakpoints = function () {
   }
 };
 
-Greedy.prototype.addBindings = function () {
+DynamicNav.prototype.addBindings = function () {
   window.addEventListener("resize", this.bindMethod("updateMenu"));
 
   this.toggleButton.addEventListener("click", () => {
@@ -49,7 +49,7 @@ Greedy.prototype.addBindings = function () {
   });
 };
 
-Greedy.prototype.updateMenu = function () {
+DynamicNav.prototype.updateMenu = function () {
   var availableSpace = this.element.offsetWidth;
   var itemsVisible = this.visibleLinks.children.length;
   var requiredSpace = this.breakpoints[itemsVisible - 1];
@@ -88,9 +88,7 @@ let documentStateCheck = setInterval(() => {
     document.querySelector(".overflow")
   ) {
     clearInterval(documentStateCheck);
-    var menu = new Greedy({
-      element: ".menu",
-    });
-    menu;
+    var DynamicNavigation = new DynamicNav();
+    DynamicNavigation;
   }
 }, 100);

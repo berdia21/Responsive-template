@@ -43,9 +43,6 @@ $xxl: '1399px';
   }
 }
 
-
-
-
 @mixin upto-xs {
   @media (max-width: calc(#{$xs} - 1px)) {
     @content;

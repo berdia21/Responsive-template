@@ -1,1 +1,1 @@
-# Responsive-template
+ კოდში სადემონსტრაციოდ შერეულია tailwind და scss გამოყენება, 

@@ -25,7 +25,7 @@ DynamicNav.prototype.bindMethod = function (name) {
 };
 
 DynamicNav.prototype.setupMenu = function () {
-  this.hiddenLinks = document.querySelector(".overflow");
+  this.hiddenLinks = document.querySelector(".dropdown-body");
   this.element.appendChild(this.hiddenLinks);
   this.visibleLinks.classList.add("visible-links");
 };
@@ -50,7 +50,7 @@ DynamicNav.prototype.addBindings = function () {
 };
 
 DynamicNav.prototype.updateMenu = function () {
-  var availableSpace = this.element.offsetWidth;
+  var availableSpace = this.element.offsetWidth - this.toggleButton.offsetWidth;
   var itemsVisible = this.visibleLinks.children.length;
   var requiredSpace = this.breakpoints[itemsVisible - 1];
 
@@ -84,8 +84,7 @@ DynamicNav.prototype.updateMenu = function () {
 let documentStateCheck = setInterval(() => {
   if (
     document.readyState === "complete" &&
-    window.innerWidth > 1199 &&
-    document.querySelector(".overflow")
+    document.querySelector(".dropdown-body")
   ) {
     clearInterval(documentStateCheck);
     var DynamicNavigation = new DynamicNav();

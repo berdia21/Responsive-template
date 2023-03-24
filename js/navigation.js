@@ -6,8 +6,6 @@ var DynamicNav = function DynamicNav() {
   this.init();
 };
 
-window.DynamicNav = DynamicNav;
-
 DynamicNav.prototype.init = function () {
   this.setupMenu();
   this.calculateBreakpoints();

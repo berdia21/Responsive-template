@@ -73,7 +73,10 @@ DynamicNav.prototype.updateMenu = function () {
     }
   }
 
-  if (!this.hiddenLinks.children.length) {
+  if (
+    !this.hiddenLinks.children.length ||
+    window.innerWidth > this.element.offsetWidth + 400
+  ) {
     this.toggleButton.style.setProperty("display", "none", "important");
     this.toggleButton.classList.remove("visible-links");
     this.hiddenLinks.classList.remove("max-h-none");
